@@ -18,6 +18,7 @@ import microsites.ExtraMdFileConfig
 import scala.sys.process._
 import scala.xml.Elem
 import scala.xml.transform.{RewriteRule, RuleTransformer}
+import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
 organization in ThisBuild := "org.typelevel"
 organizationName in ThisBuild := "Typelevel"
@@ -25,12 +26,12 @@ startYear in ThisBuild := Some(2017)
 
 val CompileTime = config("CompileTime").hide
 
-val CatsVersion = "1.1.0"
-val SimulacrumVersion = "0.11.0"
+val CatsVersion = "1.1.1-KH"
+val SimulacrumVersion = "0.13.0-KH"
 
-val ScalaTestVersion = "3.0.5"
-val ScalaCheckVersion = "1.13.5"
-val DisciplineVersion = "0.8"
+val ScalaTestVersion = "3.1.0-KH"
+val ScalaCheckVersion = "1.14.1-SNAPSHOT-KH"
+val DisciplineVersion = "0.10.1-KH"
 
 addCommandAlias("ci", ";test ;mimaReportBinaryIssues; doc")
 addCommandAlias("release", ";project root ;reload ;+publishSigned ;sonatypeReleaseAll ;microsite/publishMicrosite")
@@ -481,7 +482,7 @@ lazy val microsite = project.in(file("site"))
  * version bump of 1.0.  Again, this is all to avoid pre-committing
  * to a major/minor bump before the work is done (see: Scala 2.8).
  */
-val BaseVersion = "1.0.0-RC2"
+val BaseVersion = "1.0.0-KH"
 
 licenses in ThisBuild += ("Apache-2.0", url("http://www.apache.org/licenses/"))
 

@@ -88,7 +88,7 @@ private[internals] object IOTimer {
       try { r.run() }
       catch { case e: Throwable => e.printStackTrace() }
 
-    js.Dynamic.global.setTimeout(lambda, delayMillis)
+    js.Dynamic.global.setTimeout(lambda, delayMillis.toInt)
   }
 
   private def clearTimeout(task: js.Dynamic): Unit = {
